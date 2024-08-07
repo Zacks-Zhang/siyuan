@@ -32,6 +32,18 @@ jobs:
           python-version: "3.11"
       - run: pip install PyGithub
 
+      - name: patch
+        uses: valitydev/action-download-file@v1.0.6
+        with:
+          # URL to file
+          url: https://raw.githubusercontent.com/Zacks-Zhang/sy-unlock-patch/main/0001-unlock.patch
+          # Target path
+          target-path: . # optional, default is .
+      - run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          git am 0001-unlock.patch
+
       - id: thisLatestRelease
         uses: pozetroninc/github-action-get-latest-release@master
         with:
