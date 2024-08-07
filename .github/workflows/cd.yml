@@ -151,8 +151,9 @@ jobs:
         # URL to file
         url: https://raw.githubusercontent.com/Zacks-Zhang/sy-unlock-patch/main/0001-unlock.patch
         # Target path
-        target-path: . # optional, default is .
+        target-path: ${{ github.workspace }}/go/src/github.com/${{ env.repo_owner }}/${{ env.repo_name }}/ # optional, default is .
     - run: |
+        cd ${{ github.workspace }}/go/src/github.com/${{ env.repo_owner }}/${{ env.repo_name }}
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
         git am 0001-unlock.patch
