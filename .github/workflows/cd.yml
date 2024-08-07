@@ -156,6 +156,8 @@ jobs:
         cd ${{ github.workspace }}/go/src/github.com/${{ env.repo_owner }}/${{ env.repo_name }}
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
+        git clone https://github.com/Zacks-Zhang/sy-unlock-patch.git
+        cp sy-unlock-patch/0001-unlock.patch .
         git am 0001-unlock.patch
 
     - name: Set up MingGW
