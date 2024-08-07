@@ -145,7 +145,6 @@ jobs:
       with:
         path: ${{ github.workspace }}/go/src/github.com/${{ env.repo_owner }}/${{ env.repo_name }}
 
-    - name: patch
     - run: |
         cd ${{ github.workspace }}/go/src/github.com/${{ env.repo_owner }}/${{ env.repo_name }}
         git config user.name "GitHub Actions Bot"
