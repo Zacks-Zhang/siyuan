@@ -10,7 +10,7 @@ on:
 
 jobs:
     sync_with_upstream:
-        name: Sync with Upstream
+        name: sync_with_upstream
         runs-on: ubuntu-latest
         if: ${{ github.event.repository.fork }}
 
@@ -35,5 +35,5 @@ jobs:
                   exit 1
     cd:
         name: build
-        if: steps.sync.outputs.has_new_commits == 'true'
+        if: job.sync_with_upstream.steps.sync.outputs.has_new_commits == 'true'
         uses: ./.github/workflows/cd.yml
